@@ -22,7 +22,7 @@
             <Image x:Name="imgSitio" Source="{Binding foto, Converter={StaticResource ByteToImage}}" IsVisible="false"/>
             <map:Map x:Name="Mapa"  IsShowingUser = "true"/>
             <StackLayout>
-                <Button Text="Compartir Img" x:Name="btn_Compartir" Clicked="btn_Compartir_Clicked"/>
+                <Button Text="Compartir Imagen" x:Name="btn_Compartir" Clicked="btn_Compartir_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -65,7 +65,7 @@ namespace PM02E18124.Views
 
                 if (result == 1)
                 {
-                    DisplayAlert("Atencion", "Registro Eliminado exitosamente", "OK");
+                    DisplayAlert("Atencion", "Registro eliminado correctamente", "OK");
                     Cargar_Sitios();
                 }
                 else
@@ -80,7 +80,7 @@ namespace PM02E18124.Views
             var idSitio = (sitios)(sender as MenuItem).CommandParameter;
             //await DisplayAlert("Aviso", "sitio " + idSitio, "ok");
 
-            bool answer = await DisplayAlert("AVISO", "¿Quiere ir al mapa?", "Si", "No");
+            bool answer = await DisplayAlert("AVISO", "¿Quiere dirigirse al mapa?", "Si", "No");
             Debug.WriteLine("Answer: " + answer);
 
             if (answer == true)
@@ -100,21 +100,21 @@ namespace PM02E18124.Views
                 }
                 catch (FeatureNotSupportedException fnsEx)
                 {
-                    await DisplayAlert("Advertencia", "Este dispositivo no soporta GPS" + fnsEx, "Ok");
+                    await DisplayAlert("Atencion", "Este dispositivo no soporta GPS" + fnsEx, "Ok");
                 }
                 catch (FeatureNotEnabledException fneEx)
                 {
-                    await DisplayAlert("Advertencia", "Error de Dispositivo, validar si su GPS esta activo", "Ok");
+                    await DisplayAlert("Atencion", "Error de Dispositivo, validar si su GPS esta activo", "Ok");
                     System.Diagnostics.Process.GetCurrentProcess().Kill();
 
                 }
                 catch (PermissionException pEx)
                 {
-                    await DisplayAlert("Advertencia", "Sin Permisos de Geolocalizacion" + pEx, "Ok");
+                    await DisplayAlert("Atencion", "Sin Permisos de Geolocalizacion" + pEx, "Ok");
                 }
                 catch (Exception ex)
                 {
-                    await DisplayAlert("Advertencia", "Sin Ubicacion " + ex, "Ok");
+                    await DisplayAlert("Atencion", "Sin Ubicacion " + ex, "Ok");
                 }
             };
         }

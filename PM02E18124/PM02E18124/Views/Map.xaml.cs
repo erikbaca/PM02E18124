@@ -72,7 +72,7 @@ namespace PM02E18124.Views
             }
             catch (FeatureNotEnabledException fneEx)
             {
-                await DisplayAlert("Atencion", "Error de Dispositivo, Favor validar si su GPS esta activo", "Ok");
+                await DisplayAlert("Atencion", "Error de Dispositivo, favor validar si su GPS esta activo", "Ok");
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
 
             }

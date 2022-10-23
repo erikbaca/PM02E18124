@@ -46,7 +46,7 @@ namespace PM02E18124
             }
             catch (FeatureNotEnabledException fneEx)
             {
-                await DisplayAlert("Atencion", "Error de Dispositivo, validar si su GPS esta activo", "Ok");
+                await DisplayAlert("Atencion", "Error de Dispositivo, favor validar si su GPS esta activo", "Ok");
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
 
             }
@@ -66,11 +66,11 @@ namespace PM02E18124
         {
             if (Filefoto != null)
             {
-                using (MemoryStream memory = new MemoryStream()) //Declaramos que nuestro archivo estara en memoria ram 
+                using (MemoryStream memory = new MemoryStream()) 
                 {
-                    Stream stream = Filefoto.GetStream();//se convierte a string
-                    stream.CopyTo(memory);//se copia en memoria
-                    return memory.ToArray();//se convierte el string en array
+                    Stream stream = Filefoto.GetStream();
+                    stream.CopyTo(memory);
+                    return memory.ToArray();
                 }
 
             }
@@ -85,12 +85,12 @@ namespace PM02E18124
             }
             else if (string.IsNullOrEmpty(txtDescripcion.Text))
             {
-                await this.DisplayAlert("Atencion", "El campo del Descripcion es obligatorio.", "OK");
+                await this.DisplayAlert("Atencion", "El campo descripcion es obligatorio.", "OK");
 
             }
             else if (string.IsNullOrEmpty(txtLat.Text) && string.IsNullOrEmpty(txtLon.Text))
             {
-                await this.DisplayAlert("Atencion", "No se puede agregar Registro. Faltan coordenadas.", "OK");
+                await this.DisplayAlert("Atencion", "No fue posible agregar registro. Faltan coordenadas.", "OK");
 
                 LoadCoord();
 
@@ -108,7 +108,8 @@ namespace PM02E18124
 
                 var result = await App.DBase.SitioSave(sitio);
 
-                if (result > 0)//se usa como una super clase
+                //super clase
+                if (result > 0)
                 {
                     await DisplayAlert("Atencion", "Sitio Registrado", "OK");
                     Clear();
@@ -173,7 +174,7 @@ namespace PM02E18124
             }
             catch (FeatureNotEnabledException fneEx)
             {
-                await DisplayAlert("Atencion", "Error de Dispositivo, validar si su GPS esta activo", "Ok");
+                await DisplayAlert("Atencion", "Error del dispositivo, favor validar si su GPS esta activo", "Ok");
                 System.Diagnostics.Process.GetCurrentProcess().Kill(); //cerramos la aplicacion hasta que el usuario active el GPS
 
             }
