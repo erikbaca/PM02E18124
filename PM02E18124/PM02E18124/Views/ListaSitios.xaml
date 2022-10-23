@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Convertidor="clr-namespace:PM02E18124.Converter" 
+             x:Class="PM02E18124.Views.ListaSitios">
+    <!--Recurso de pagina que se usa con la clase convertidor que creamos en el contenpage-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Disparamos la funcion que ya tenemos-->
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <ListView x:Name="Lista" ItemTapped="ListSitio_ItemTapped" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <!--Menus-->
+                                <MenuItem x:Name="Eliminar" Clicked="Eliminar_Clicked" CommandParameter="{Binding .}" Text="Eliminar" IsDestructive="True"/>
+                            </ViewCell.ContextActions>
+                            <Grid>
+                                <Label Grid.Column="0" Text="{Binding id}"/>
+                                <Label Grid.Column="1" Text="{Binding latitud}"/>
+                                <Label Grid.Column="3" Text="{Binding longitud}"/>
+                                <Label Grid.Column="4" Text="{Binding descripcion}"/>
+                                <Image Source="{Binding foto, Converter={StaticResource ByteToImage}}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

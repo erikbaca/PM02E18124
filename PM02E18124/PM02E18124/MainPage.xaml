@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM02E18124.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="AliceBlue"  Padding="24" CornerRadius="0">
+            <Label Text="Examen PM2E18124" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
+        </Frame>
+
+        <!--FOTO-->
+        <Image x:Name="fotoSitio" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="usuario.png"   Margin="5,0,5,5"/>
+        <Button Text="Tomar Foto" x:Name="btnFoto" Clicked="btnFoto_Clicked" CornerRadius="25" Background="DarkBlue" TextColor="White" Margin="5"/>
+        <!--DATOS-->
+        <Label Text="Latitud"/>
+        <Entry x:Name="txtLat" IsReadOnly="true" TextTransform="None"/>
+        <Label Text="Longitud"/>
+        <Entry x:Name="txtLon" IsReadOnly="true" TextTransform="None"/>
+        <Label Text="Descripcion"/>
+        <Entry x:Name="txtDescripcion"/>
+        <!--BONOTES-->
+        <AbsoluteLayout>
+            <Button Text="Agregar" x:Name="btnAdd" Clicked="btnAdd_Clicked" Background="Green" TextColor="White" Margin="50, 20, 50, 50" CornerRadius="20" Padding="20"/>
+            <Button Text="Listar Sitios" x:Name="btnList" Clicked="btnList_Clicked" Background="DarkBlue" TextColor="White" Margin="250, 20, 0, 50" CornerRadius="20" Padding="20"/>
+            <Button Text="Salir" x:Name="btnSalir" Clicked="btnSalir_Clicked" Background="red" TextColor="White" Margin="162, 100, 30, 40" CornerRadius="20" Padding="20"/>
+        </AbsoluteLayout>
+        
+    </StackLayout>
+
+</ContentPage>

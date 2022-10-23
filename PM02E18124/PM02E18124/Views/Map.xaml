@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM02E18124.Views.Map"
+             xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:Convertidor="clr-namespace:PM02E18124.Converter" >
+
+    <!--srecurso de pagina que se usa con la clase convertidor -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Dispara la funcion que ya tenemos-->
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding latitud}" x:Name="mtxtLat" IsVisible="false"/>
+            <Entry Text="{Binding longitud}" x:Name="mtxtLon" IsVisible="false"/>
+            <Label Text="{Binding descripcion}" FontSize="16" HorizontalOptions="Center" x:Name="nomSitio" IsVisible="false"/>
+            <Label Text="{Binding foto}" x:Name="FOTO" IsVisible="false"/>
+            <Image x:Name="imgSitio" Source="{Binding foto, Converter={StaticResource ByteToImage}}" IsVisible="false"/>
+            <map:Map x:Name="Mapa"  IsShowingUser = "true"/>
+            <StackLayout>
+                <Button Text="Compartir Img" x:Name="btn_Compartir" Clicked="btn_Compartir_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
